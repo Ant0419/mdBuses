@@ -1,6 +1,5 @@
 package buses;
-import java.io.IOException;
-import java.io.BufferedReader;
+import java.io.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -41,4 +40,26 @@ public class Servicio {
         }
     }
     //---------SEGUNDA---PARTE-----------------------------------------------------------------------------
+    public ArrayList<Bus> filtra(Criterio criterio){
+        ArrayList<Bus> busesFiltrado = new ArrayList<>();
+        for(int i=0; i<buses.size(); ++i){
+            if(criterio.esSeleccionable(buses.get(i))){
+                busesFiltrado.add(buses.get(i));
+            }
+        }
+        return busesFiltrado;
+    }
+    public void guarda(String file, Criterio criterio) throws FileNotFoundException {
+        try (PrintWriter pw = new PrintWriter(file)) {
+            guarda(pw, criterio);
+        }catch (FileNotFoundException e){
+            throw new FileNotFoundException("No se ha encontrado el archivo.");
+        }
+    }
+    public void guarda(PrintWriter pw, Criterio criterio){
+        ArrayList<Bus> listaFiltrada = filtra(criterio);
+        for (Bus bus : listaFiltrada) {
+            pw.println(bus.toString());
+        }
+    }
 }
