@@ -40,6 +40,7 @@ public class Servicio {
         }
     }
     //---------SEGUNDA---PARTE-----------------------------------------------------------------------------
+    //Filtra en el array de buses por el criterio que se introduce.
     public ArrayList<Bus> filtra(Criterio criterio){
         ArrayList<Bus> busesFiltrado = new ArrayList<>();
         for(int i=0; i<buses.size(); ++i){
@@ -49,6 +50,7 @@ public class Servicio {
         }
         return busesFiltrado;
     }
+    //Sirve para guardar en un fichero la lista de buses filtrada por el criterio introducido
     public void guarda(String file, Criterio criterio) throws FileNotFoundException {
         try (PrintWriter pw = new PrintWriter(file)) {
             guarda(pw, criterio);
