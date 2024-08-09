@@ -43,9 +43,9 @@ public class Servicio {
     //Filtra en el array de buses por el criterio que se introduce.
     public ArrayList<Bus> filtra(Criterio criterio){
         ArrayList<Bus> busesFiltrado = new ArrayList<>();
-        for(int i=0; i<buses.size(); ++i){
-            if(criterio.esSeleccionable(buses.get(i))){
-                busesFiltrado.add(buses.get(i));
+        for (Bus bus : buses) {
+            if (criterio.esSeleccionable(bus)) {
+                busesFiltrado.add(bus);
             }
         }
         return busesFiltrado;

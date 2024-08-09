@@ -8,10 +8,6 @@ public class EnMatricula implements Criterio{
     //el autobus sera seleccionable si la matricula bus esta contenida en el dato.
     @Override
     public boolean esSeleccionable(Bus bus) {
-        boolean seleccionable = false;
-        if(bus.getMatricula().contains(dato)){
-            seleccionable = true;
-        }
-        return seleccionable;
+        return bus.getMatricula().contains(dato);
     }
 }
