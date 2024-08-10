@@ -7,10 +7,6 @@ public class PorLinea implements Criterio{
     }
     @Override
     public boolean esSeleccionable(Bus bus) {
-        boolean seleccionable = false;
-        if(codLinea == bus.getCodLinea()){
-            seleccionable=true;
-        }
-        return seleccionable;
+       return codLinea == bus.getCodLinea();
     }
 }
